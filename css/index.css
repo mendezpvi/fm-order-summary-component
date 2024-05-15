@@ -1,0 +1,182 @@
+body {
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-red), sans-serif;
+  background: url('../assets/image/pattern-background-mobile.svg') no-repeat top center/100vw var(--pale-blue);
+}
+@media (width >= 30.625rem) {
+  body {
+    background-image: url('../assets/image/pattern-background-desktop.svg');
+  }
+}
+
+:root {
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 19%, 48%);
+  --dark-blue: hsl(223, 47%, 23%);
+  --white: hsl(0, 0%, 100%);
+  --ff-red: 'Red Hat Display';
+}
+
+.card {
+  margin-top: 3.8rem;
+  inline-size: clamp(20.4375rem, 87.2vw, 28.125rem);
+  background-color: var(--white);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 2.5rem 2.5rem -1.25rem hsl(228, 87%, 40%, .15);
+}
+
+.card__body {
+  padding: 1.5rem 1.5rem 1.1rem;
+}
+.card__title {
+  margin-top: .15em;
+  font-size: clamp(1.375rem, 1rem + 1.6vw, 1.75rem);
+  font-weight: 900;
+  color: var(--dark-blue);
+}
+.card__description {
+  margin: 1.1em auto 0;
+  inline-size: 90%;
+  font-size: clamp(.9375rem, .55rem + 1.66vw, 1rem);
+  font-weight: 500;
+  line-height: 1.68;
+  color: var(--desaturated-blue);
+}
+
+.plan {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  justify-items: start;
+  align-items: center;
+  background-color: var(--very-pale-blue);
+  border-radius: 11px;
+}
+.plan__type {
+  margin-left: 1.4em;
+  font-size: clamp(.875rem, .5rem + 1.6vw, 1rem);
+  font-weight: 900;
+  line-height: 1.5;
+  color: var(--dark-blue);
+}
+.plan__cost {
+  display: block;
+  font-weight: 500;
+  color: var(--desaturated-blue);
+}
+.plan__cta {
+  font-size: clamp(.8125rem, .5rem + 1.33vw, .875rem);
+  font-weight: 700;
+  color: var(--bright-blue);
+  text-decoration: underline;
+  transition: opacity .3s ease;
+}
+
+.btn-wrapper {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: .5em;
+}
+.btn {
+  padding: 1.1em;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  border-radius: 11px;
+  color: var(--desaturated-blue);
+  cursor: pointer;
+  letter-spacing: .35px;
+  transition: opacity .3s ease, color .3s ease;
+}
+.active-btn {
+  background-color: var(--bright-blue);
+  color: var(--white);
+  box-shadow: 0 1.25rem 1.25rem hsl(228, 87%, 40%, .2);
+}
+
+.attribution {
+  padding-block: 1.5em;
+  font-size: .86rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--dark-blue);
+}
+.attribution__cta {
+  margin-inline: .3em;
+  font-weight: 700;
+  color: var(--bright-blue);
+  position: relative;
+}
+.attribution__cta::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -.1rem;
+  inline-size: 100%;
+  block-size: .1rem;
+  background-color: currentColor;
+  transition: inline-size .3s ease;
+}
+
+
+@media (width >= 30.625rem) {
+  .card__body {
+    padding: 1.5rem 3rem 2.1rem;
+  }
+  .card__title {
+    margin-top: .57em;
+  }
+  .card__description {
+    margin-top: 1.05em;
+    line-height: 1.63;
+  }
+  .plan {
+    margin-top: 1.15rem;
+    padding: 1.6rem 1.5rem;
+  }
+  .plan__type {
+    margin-left: 1.25em;
+  }
+  .btn-wrapper {
+    margin-top: 1.95rem;
+    gap: 1.05em;
+  }
+}
+
+
+
+*:focus-visible {
+  outline-offset: .15rem;
+  outline: .15rem dotted var(--bright-blue);
+}
+
+@media (hover:hover) {
+  .plan__cta:hover {
+    text-decoration: none;
+    opacity: .75;
+  }
+  .active-btn:hover {
+    opacity: .75;
+  }
+  .cancel-btn:hover {
+    color: var(--dark-blue);
+  }
+  .attribution__cta:hover::after {
+    inline-size: 0;
+  }
+}
+
+.attribution__cta:focus-visible::after {
+  inline-size: 0;
+}
